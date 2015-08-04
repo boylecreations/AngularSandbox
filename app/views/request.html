@@ -6,6 +6,25 @@
 			<input type="text" ng-model="handle">
 		</div>
 
+		<div class="alert alert-danger" role="alert" ng-if="handle.length !== characters">
+
+			Must be 5 Characters
+
+		</div>
+
+		<div class="alert alert-success" ng-show="handle.length !== characters">
+
+			Successful Paramaters!
+
+		</div>
+
+		<div class="alert alert-success" ng-hide="handle.length === characters">
+
+			Successful Hidden!
+
+		</div>
+
+
 		<hr />
 
 		<h1><a href="http://twitter.com/{{ handle }}">http://twitter.com/{{ lowercasehandle() }}</a></h1>

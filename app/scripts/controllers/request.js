@@ -20,6 +20,9 @@ angular.module('SandboxApp')
     	return $filter('lowercase')($scope.handle);
     };
 
+    $scope.characters = 5;
+
+    // Watcher example
     $scope.$watch('handle', function(newValue, oldValue) {
 
         console.info('Changed');
@@ -32,7 +35,7 @@ angular.module('SandboxApp')
     setTimeout(function() {
         //Applys function to the digest loop
         $scope.$apply(function() {
-        $scope.handle = 'newtwitterhandle';
+        $scope.handle = 'boylecreations';
         console.log('Scope Changed!');
         })
     }, 3000);
