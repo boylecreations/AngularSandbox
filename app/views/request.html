@@ -6,28 +6,38 @@
 			<input type="text" ng-model="handle">
 		</div>
 
-		<div class="alert alert-danger" role="alert" ng-if="handle.length !== characters">
+		<div class="alert" ng-class="{ 'alert-warning': handle.length < characters }"role="alert" ng-if="handle.length !== characters">
 
-			Must be 5 Characters
+			Must be at least 5 Characters
 
 		</div>
 
-		<div class="alert alert-success" ng-show="handle.length !== characters">
+		<div class="alert" ng-show="handle.length !== characters">
 
 			Successful Paramaters!
 
 		</div>
 
-		<div class="alert alert-success" ng-hide="handle.length === characters">
+		<div class="alert" ng-hide="handle.length === characters">
 
 			Successful Hidden!
 
 		</div>
 
+		<hr />
+
+		<h3>Rules</h3>
+		<ul>
+			<li ng-repeat="rule in rules">{{ rule.rulename }}</li>
+		</ul>
 
 		<hr />
 
 		<h1><a href="http://twitter.com/{{ handle }}">http://twitter.com/{{ lowercasehandle() }}</a></h1>
+
+		<hr />
+
+		Add Rule: <input type="text" ng-model="newRule" /><a href="#" class="btn btn-default" ng-click="addRule()">Add</a>
 
 	</div>
 </div>

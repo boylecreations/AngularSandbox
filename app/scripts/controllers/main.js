@@ -14,5 +14,11 @@ angular.module('SandboxApp')
       'AngularJS',
       'Karma'
     ];
+
+    $scope.alertClick = function() {
+
+    	alert("clicked!");
+
+    };
     
   });

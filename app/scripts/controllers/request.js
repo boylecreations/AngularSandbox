@@ -8,7 +8,7 @@
  * Controller of the SandboxApp
  */
 angular.module('SandboxApp')
-  .controller('RequestCtrl', ['$scope', '$filter', function ($scope, $filter) {
+  .controller('RequestCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
       'AngularJS',
@@ -20,7 +20,7 @@ angular.module('SandboxApp')
     	return $filter('lowercase')($scope.handle);
     };
 
-    $scope.characters = 5;
+    $scope.characters = 7;
 
     // Watcher example
     $scope.$watch('handle', function(newValue, oldValue) {
@@ -30,6 +30,64 @@ angular.module('SandboxApp')
         console.log('New:' + newValue);
 
     });
+
+    $scope.rules = [
+      
+      { rulename: "Must be 7 Characters" },
+      { rulename: "Must not already be in use" },
+      { rulename: "Must not contain numbers" }
+
+    ];
+
+    console.log($scope.rules);
+
+    //Regular XMLHTTPREQUEST
+
+    /*
+
+    Broken Code!
+
+    var rulesrequest = new XMLHttpRequest();
+    rulesrequest.onreadystatechange = function() {
+        
+        $scope.$apply(function() {
+            if (rulesrequest.readyState = 4 && rulesrequest.status == 200) {
+            $scope.rules = JSON.parse(rulesrequest.responseText);
+            }
+        });
+    }
+    
+    rulesrequest.open("GET", "http://locahost:9000")
+    rulesrequest.send();
+    
+    
+
+    //Angular XMLHttpRequest 
+
+    $http.get('/api').success(function(result){
+
+            console.log("data retreival was a success");
+            $scople.rules = result;
+
+        }).error(function (data, status){
+
+            console.log("there was an error");
+    })
+
+    $scope.newRule = '';
+    $scope.addRule = function () {
+
+        $http.post('/api', { newRule: $scope.newRule })
+            .success(function (result) {
+                $scope.rules = result;
+                $scope.newRule = '';
+            })
+            .error(function(data, status){
+                console.log(data);
+            });
+    };
+    
+    */
 
     // Don't code outside the Angular Context
     setTimeout(function() {
