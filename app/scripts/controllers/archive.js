@@ -2,13 +2,13 @@
 
 /**
  * @ngdoc function
- * @name SandboxApp.controller:AboutCtrl
+ * @name SandboxApp.controller:ArchiveCtrl
  * @description
- * # AboutCtrl
+ * # ArchiveCtrl
  * Controller of the SandboxApp
  */
 angular.module('SandboxApp')
-  .controller('AboutCtrl', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
+  .controller('ArchiveCtrl', ['$scope', '$log', 'nameService', function ($scope, $log, nameService) {
    	
    	$scope.name = nameService.name;
     

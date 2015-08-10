@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var SandboxApp = angular
   .module('SandboxApp', [
     'ngAnimate',
     'ngAria',
@@ -37,7 +37,46 @@ angular
         templateUrl: 'views/request.html',
         controller: 'RequestCtrl'
       })
+      .when('/archive', {
+        templateUrl: 'views/archive.html',
+        controller: 'ArchiveCtrl'
+      })
+
+      //variable
+
+      .when('/:num', {
+        templateUrl: 'views/request.html',
+        controller:  'MainCtrl' 
+      })
+
+      //otherwise
+
       .otherwise({
         redirectTo: '/'
       });
+
+
+      
+
+
   });
+
+    SandboxApp.directive('searchResult', function() {
+        return {
+          templateUrl: 'directives/searchresult.html',
+          replace: true,
+          restrict: 'E'
+        }
+    });
+
+
+    SandboxApp.service('nameService', function () {
+
+      var self = this;
+      this.name = "John Doe"
+      this.namelength = function() {
+      return self.name.length;
+    
+    }
+
+});

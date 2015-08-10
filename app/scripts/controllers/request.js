@@ -9,12 +9,7 @@
  */
 angular.module('SandboxApp')
   .controller('RequestCtrl', ['$scope', '$filter', '$http', function ($scope, $filter, $http) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-
+  
     $scope.handle = '';
     $scope.lowercasehandle = function() {
     	return $filter('lowercase')($scope.handle);

@@ -9,9 +9,5 @@
  */
 angular.module('SandboxApp')
   .controller('ContactCtrl', ['$scope', '$filter', function ($scope, $filter) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+ 
   }]);
