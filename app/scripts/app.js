@@ -61,11 +61,17 @@ var SandboxApp = angular
 
   });
 
+
+    // @ is an operator for text for the scope outside of isolation
     SandboxApp.directive('searchResult', function() {
         return {
-          templateUrl: 'directives/searchresult.html',
+          templateUrl: '../directives/searchresult.html',
           replace: true,
-          restrict: 'E'
+          restrict: 'E',
+          scope: {
+              personName: "@",
+              personAddress: "@"
+          }
         }
     });
 

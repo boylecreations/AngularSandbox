@@ -12,6 +12,15 @@ angular.module('SandboxApp')
    	
    	$scope.name = nameService.name;
     
+   	$scope.person = {
+   		name: "John",
+   		address: "butt street"
+   	}
+
+    $scope.$watch('name', function() {
+      nameService.name = $scope.name;
+    });
+
     $log.log(nameService.name);
     $log.log(nameService.namelength());
 
