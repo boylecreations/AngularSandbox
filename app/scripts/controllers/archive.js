@@ -12,10 +12,50 @@ angular.module('SandboxApp')
    	
    	$scope.name = nameService.name;
     
-   	$scope.person = {
-   		name: "John",
-   		address: "butt street"
-   	}
+   	$scope.people = [
+   		{
+   			name: "John",
+   			address: "69 butt street",
+   			city: "New York",
+   			state: "NY",
+   			zip: "1111"
+   		},
+   		{
+   			name: "Jane",
+   			address: "69 butt street",
+   			city: "New York",
+   			state: "NY",
+   			zip: "1111"
+   		},
+   		{
+   			name: "Jingle",
+   			address: "69 butt street",
+   			city: "New York",
+   			state: "NY",
+   			zip: "1111"
+   		},
+   		{
+   			name: "Heimer",
+   			address: "69 butt street",
+   			city: "New York",
+   			state: "NY",
+   			zip: "1111"
+   		},
+   		{
+   			name: "Schmidt",
+   			address: "69 butt street",
+   			city: "New York",
+   			state: "NY",
+   			zip: "1111"
+   		}
+   		
+   	];
+
+   	$scope.formattedAddress = function(person) {
+
+   		return person.address + ', ' + person.city + ', ' + person.state + ', ' + person.zip;
+
+   	};
 
     $scope.$watch('name', function() {
       nameService.name = $scope.name;

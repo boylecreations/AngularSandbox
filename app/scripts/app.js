@@ -69,9 +69,26 @@ var SandboxApp = angular
           replace: true,
           restrict: 'E',
           scope: {
-              personName: "@",
-              personAddress: "@"
-          }
+            // Two way binding in the isolated scope
+              personObject: "=",
+            // Function 
+              formattedAddressFunction: "&"
+          },
+          // change compile to link to only post link
+          compile: function(elem, attrs) {
+
+              return {
+                //bad form, avoid if possible
+                //pre: function(scope, element, attrs) {
+
+                //},
+                post: function(scope, element, attrs) {
+                  // runs once per item after being posted
+                }
+              }
+          },
+          transclude: true
+          //,link:
         }
     });
 
