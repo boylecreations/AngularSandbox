@@ -3,6 +3,13 @@ $icon-font-path: "../bower_components/bootstrap-sass-official/assets/fonts/boots
 @import "bootstrap-sass-official/assets/stylesheets/_bootstrap.scss";
 // endbower
 
+#about-background {
+
+  background: url('http://boylecreations.com/img/office-job-pink.jpg');
+  background-size:cover;
+  min-height: 300px;
+
+}
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;

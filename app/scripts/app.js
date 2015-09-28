@@ -41,6 +41,14 @@ var SandboxApp = angular
         templateUrl: 'views/archive.html',
         controller: 'ArchiveCtrl'
       })
+      .when('/login', {
+        templateUrl: 'views/login.html',
+        controller: 'LoginCtrl'
+      })
+      .when('/dashboard', {
+        templateUrl: 'views/dashboard.html',
+        controller: 'DashboardCtrl'
+      })
 
       //variable
 
@@ -60,36 +68,87 @@ var SandboxApp = angular
 
 
   });
+    
+    // Hello World Directive. No Template URL
+    (function() {
 
-
-    // @ is an operator for text for the scope outside of isolation
-    SandboxApp.directive('searchResult', function() {
+      SandboxApp.directive('helloWorld', function() {
         return {
-          templateUrl: '../directives/searchresult.html',
+          template: 'Hello World'
+        };
+      });
+
+    }());
+
+    // String Conversion Widget Directive
+    (function() {
+
+      SandboxApp.directive('widget', function() {
+        return {
+          templateUrl: '../directives/widget.html',
           replace: true,
           restrict: 'E',
           scope: {
-            // Two way binding in the isolated scope
-              personObject: "=",
-            // Function 
-              formattedAddressFunction: "&"
+            widgetTitle1: "@",
+            widgetTitle2: "@",
+            combineStrings: "&"
           },
-          // change compile to link to only post link
           compile: function(elem, attrs) {
-
-              return {
-                //bad form, avoid if possible
-                //pre: function(scope, element, attrs) {
-
-                //},
-                post: function(scope, element, attrs) {
-                  // runs once per item after being posted
-                }
+            return {
+              post: function(scope, element, attrs) {
+                console.log("Compile Fired");
               }
-          },
-          transclude: true
-          //,link:
+            }
+          }
         }
+      });
+
+    }());
+
+    // Udemy Search Result Directive.
+    (function() {
+
+       // @ is an operator for text for the scope outside of isolation
+      SandboxApp.directive('searchResult', function() {
+          return {
+            templateUrl: '../directives/searchresult.html',
+            replace: true,
+            restrict: 'E',
+            scope: {
+              // Two way binding in the isolated scope
+                personObject: "=",
+              // Function 
+                formattedAddressFunction: "&"
+            },
+            // change compile to link to only post link
+            compile: function(elem, attrs) {
+
+                return {
+                  //bad form, avoid if possible
+                  //pre: function(scope, element, attrs) {
+
+                  //},
+                  post: function(scope, element, attrs) {
+                    // runs once per item after being posted
+                  }
+                }
+            },
+            transclude: true
+            //,link:
+          }
+      });
+
+    }());
+    
+
+
+   
+
+    SandboxApp.service('contactFormService', function () {
+
+
+    
+      
     });
 
 
@@ -101,5 +160,7 @@ var SandboxApp = angular
       return self.name.length;
     
     }
+
+    
 
 });
